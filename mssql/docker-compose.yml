@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  sql_server_db:
+    container_name: sql_server_db
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      SA_PASSWORD: "AdminPass123#"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
