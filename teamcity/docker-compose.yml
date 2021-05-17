@@ -12,7 +12,7 @@ services:
     depends_on: 
       - database
     environment:
-      - TEAMCITY_SERVER_MEM_OPTS="-Xmx750m"
+      - TEAMCITY_SERVER_MEM_OPTS=${TEAMCITY_SERVER_MEM_OPTS}
   
   agent:
     image: 'jetbrains/teamcity-minimal-agent'
@@ -26,6 +26,6 @@ services:
     ports: 
       - 5432:5432
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=admin123
-      - POSTGRES_DB=teamcity_db
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
