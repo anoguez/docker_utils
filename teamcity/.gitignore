@@ -1,0 +1,6 @@
+.DS_Store
+
+/opt/teamcity/log/*/*
+/opt/teamcity/data/system/*
+/opt/teamcity/data/plugins/*
+/opt/teamcity/data/config/*

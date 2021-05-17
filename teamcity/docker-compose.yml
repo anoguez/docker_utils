@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  server:
+    image: 'jetbrains/teamcity-server'
+    container_name: teamcity_server
+    volumes:
+      - './opt/teamcity/data:/data/teamcity_server/datadir'
+      - './opt/teamcity/log:/data/teamcity/logs'
+    ports:
+      - 8111:8111
+    depends_on: 
+      - database
+    environment:
+      - TEAMCITY_SERVER_MEM_OPTS="-Xmx750m"
+  
+  agent:
+    image: 'jetbrains/teamcity-minimal-agent'
+    container_name: teamcity_agent
+    environment:
+      - SERVER_URL=server:8111
+
+  database:
+    image: 'postgres'
+    container_name: teamcity_database
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_DB=teamcity_db
