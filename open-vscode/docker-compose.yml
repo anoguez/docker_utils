@@ -1,0 +1,20 @@
+services:
+  vscode_server:
+    build:
+      context: ./
+      args:
+        - RELEASE_TAG=${OPENVSCODE_SERVER_VERSION}
+        - USERNAME=${USERNAME}
+        - USER_UID=${USER_UID}
+        - PORT=${PORT}
+        - OPTS=${OPTS}
+    container_name: vscode_server
+    image: openvscode_ngz
+    # environment:
+    env_file:
+      - ./.env
+    # volumes:
+    #   - ./data:/home/workspace:cached
+    ports:
+      - "9000:${PORT}"
+    # entrypoint: [ "/bin/sh", "-c", "exec ${OPENVSCODE_SERVER_ROOT}/bin/openvscode-server --host 0.0.0.0 --without-connection-token \"${@}\"", "--" ]
