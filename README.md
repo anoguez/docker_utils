@@ -1,7 +1,8 @@
 # DOCKER UTILS
 
-Simple docker containers for development
+Simple Docker containers for development
 
 * MSSQL
 * TEAM CITY
 * OCTOPUS
+* Open VSCode Server
