@@ -22,5 +22,4 @@ services:
       - FTLCONF_REPLY_ADDR4=${FTLCONF_REPLY_ADDR4}
       - TZ=${TZ}
       - WEBPASSWORD=${WEBPASSWORD}
-      - PIHOLE_DNS_=${DNS1}
-      - PIHOLE_DNS_=${DNS2}
+      - PIHOLE_DNS_=${PIHOLE_DNS_}
