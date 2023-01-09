@@ -25,13 +25,17 @@ services:
       - 53:53/tcp
       - 443:443/tcp
     environment:
-      - FTLCONF_REPLY_ADDR4=${FTLCONF_REPLY_ADDR4}
-      - TZ=${TZ}
+      - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
+      - TZ=${TZ:-UTC}
       - WEBPASSWORD=${WEBPASSWORD}
       - PIHOLE_DNS_=${PIHOLE_DNS_}
       - DNSSEC="true"
       - DNSMASQ_LISTENING=single
       - WEBTHEME=${WEBTHEME:-default-light}
+      - REV_SERVER_CIDR=${REV_SERVER_CIDR}
+      - REV_SERVER=${REV_SERVER:-false}
+      - REV_SERVER_TARGET=${REV_SERVER_TARGET}
+      - REV_SERVER_DOMAIN=${REV_SERVER_DOMAIN}
 
 volumes:
   etc_pihole-unbound:
