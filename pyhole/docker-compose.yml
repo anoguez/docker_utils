@@ -5,7 +5,8 @@ services:
     image: 'pihole/pihole:latest'
     container_name: pihole
     volumes:
-      - ~/pihole/:/etc/pihole/ 
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
     dns: 
       - 127.0.0.1
       - 1.1.1.1
@@ -18,8 +19,8 @@ services:
       - 53:53/udp
       - 443:443
     environment:
-      - ServerIP=${SERVER_IP}
+      - FTLCONF_REPLY_ADDR4=${FTLCONF_REPLY_ADDR4}
       - TZ=${TZ}
       - WEBPASSWORD=${WEBPASSWORD}
-      - DNS1=${DNS1}
-      - DNS2=${DNS2}
+      - PIHOLE_DNS_=${DNS1}
+      - PIHOLE_DNS_=${DNS2}
